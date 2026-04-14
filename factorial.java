@@ -1,4 +1,4 @@
-
+question: Write a program to find the factorial of a number.
 import java.util.*;
 public class Main
 {
