@@ -32,40 +32,54 @@
 // 2
 
 import java.util.*;
+
 public class Main
 {
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("enter the size of the of the array");
+	    
+		
+		if(!sc.hasNextInt()){
+		    System.out.println("error");
+		    return;
+		}
+		
 		int a=sc.nextInt();
-		if(!sc.hasNextInt()){
-		    System.out.println("errpr");
-		    return;
-		}
+		System.out.println("enter the numbers");
 		int arr[]=new int[a];
-		for(int i=0;i<arr.length;i++){
+		for(int i=0;i<a;i++){
+		    if(!sc.hasNextInt()){
+	            System.out.println("error");
+	            return;
+	        }
 		    arr[i]=sc.nextInt();
-		    
 		}
-		if(!sc.hasNextInt()){
-		    System.out.println("errpr");
-		    return;
-		}
-		Arrays.sort(arr);
-		int target=sc.nextInt();
-	
-		int sum=0;
-		int count=0;
-		for(int i=0;i<arr.length;i++){
-		    sum=sum+arr[i];
-		    if(sum<=target){
-		        sum=sum+arr[i];
-		        count++;
-		    }
-		    else{
-		        break;
-		    }
-		}
-		System.out.println(count);
+	   
+	    
+	    Arrays.sort(arr);
+	    System.out.println("sorted array is"+Arrays.toString(arr));
+	    
+	   // System.out.println(arr)
+	   System.out.println("enter the target");
+	   
+	    
+	    if(!sc.hasNextInt()){
+	        System.out.println("error");
+	        return;
+	    }
+	    int target=sc.nextInt();
+	    int sum=0;
+	    int count=0;
+	    for(int i=0;i<arr.length;i++){
+	        sum=sum+arr[i];
+	        if(sum<=target){
+	            sum=sum+arr[i];
+	            count++;
+	        }else{
+	            break;
+	        }
+	    }
+	    System.out.println("the capacity:"+count);
 	}
-	
 }

@@ -1,48 +1,82 @@
 // Problem Statement
 
-// You are given an array of integers of size N. Your task is to:
+// You are given an array of integers of size N.
+// Your task is to:
 
-// Remove duplicate elements from the array
-// Reverse the resulting collection of unique elements
-// Print the final reversed list
+// Remove duplicate elements while maintaining the order of first occurrence
+// Print the resulting array
+// Print the reversed version of the array after removing duplicates
 // 📥 Input Format
-// First line contains an integer N (size of array)
-// Second line contains N space-separated integers
+// First line: Integer N (size of array)
+// Second line: N space-separated integers
 // 📤 Output Format
-// Print the unique elements (after removing duplicates)
-// Print the reversed list of unique elements
-// 🔹 Constraints
-// 1 ≤ N ≤ 10⁵
-// -10⁴ ≤ array[i] ≤ 10⁴
-// 🔸 Sample Input
+// First line: Array after removing duplicates
+// Second line: Reversed array
+// 🔍 Example 1
+
+// Input
+
 // 6
-// 1 2 3 2 4 1
-// 🔸 Sample Output
-// Unique elements: [1, 2, 3, 4]
-// Reversed unique elements: [4, 3, 2, 1]
+// 1 2 2 3 4 3
+
+// Output
+
+// [1, 2, 3, 4]
+// 4 3 2 1
+// 🔍 Example 2
+
+// Input
+
+// 7
+// 5 5 5 2 2 1 3
+
+// Output
+
+// [5, 2, 1, 3]
+// 3 1 2 5
 
 import java.util.*;
+
 public class Main
 {
 	public static void main(String[] args) {
 	    Scanner sc=new Scanner(System.in);
-	    System.out.println("enter the size");
-	    int a=sc.nextInt();
+	    System.out.println("enter the size of the of the array");
+	    
+		
+		if(!sc.hasNextInt()){
+		    System.out.println("error");
+		    return;
+		}
+		
+		int b=sc.nextInt();
+		System.out.println("enter the numbers");
+		int arr[]=new int[b];
+		for(int i=0;i<b;i++){
+		    if(!sc.hasNextInt()){
+	            System.out.println("error");
+	            return;
+	        }
+		    arr[i]=sc.nextInt();
+		}
+		Set<Integer> a=new HashSet<>();
+		List<Integer> result=new ArrayList<>();
+		
+		for(int i=0;i<b;i++){
+		    if(!a.contains(arr[i])){
+		        a.add(arr[i]);
+		        result.add(arr[i]);
+		    }
+		}
+		System.out.println("after removing duplictes:");
+		System.out.println(result);
+		System.out.println("reverse array");
+		for(int i=result.size()-1;i>=0;i--){
+		    System.out.print(result.get(i)+" ");
+		}
+		
 	   
-	    int arr[]=new int[a];
-	    System.out.println("enter the numbers");
-	    for(int i=0;i<a;i++){
-	        arr[i]=sc.nextInt();
-	    }
-	    HashSet<Integer>lucky=new HashSet<>();
-	    for(int num:arr){
-	        lucky.add(num);
-	    }
-		System.out.println("result: "+lucky);
-		System.out.println("after reverse");
-		ArrayList<Integer>list=new ArrayList<>(lucky);
-		Collections.reverse(list);
-		System.out.println("result:"+list);
-// 		System.out.println("Hello World");
+	    
+	    
 	}
 }
